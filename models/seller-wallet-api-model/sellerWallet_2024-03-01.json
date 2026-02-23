@@ -14,7 +14,7 @@
     },
     "version": "2024-03-01"
   },
-  "host": "sellingpartnerapi-na.amazon.com",
+  "host": "sellingpartnerapi-eu.amazon.com",
   "schemes": [
     "https"
   ],
