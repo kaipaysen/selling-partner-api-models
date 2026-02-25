@@ -115,6 +115,13 @@ type ByAsinSales {
   selected time period. Note: This field is only populated when the seller is a B2B seller.
   """
   orderedProductSalesB2B: Amount @resultRetention(duration : "P30D")
+  "The number of orders shipped for the selected time period."
+  ordersShipped: Long! @resultRetention(duration : "P30D")
+  """
+  The number of orders shipped to Amazon Business customers for the selected
+  time period. Note: This field is only populated when the seller is a B2B seller.
+  """
+  ordersShippedB2B: Long @resultRetention(duration : "P30D")
   """
   The percentage conversion metric indicating how many orders were refunded,
   calculated by dividing unitsRefunded by unitsOrdered for the selected time period.
@@ -127,6 +134,14 @@ type ByAsinSales {
   populated when the seller is a B2B seller.
   """
   refundRateB2B: Float @resultRetention(duration : "P30D")
+  "The amount of ordered product sales shipped for the selected time period."
+  shippedProductSales: Amount! @resultRetention(duration : "P30D")
+  """
+  The amount of ordered product sales shipped to Amazon Business customers for
+  the selected time period. Note: This field is only populated when the seller
+  is a B2B seller.
+  """
+  shippedProductSalesB2B: Amount @resultRetention(duration : "P30D")
   "The number of items that were ordered for the selected time period."
   totalOrderItems: Long! @resultRetention(duration : "P30D")
   """
@@ -148,6 +163,13 @@ type ByAsinSales {
   time period. Note: This field is only populated when the seller is a B2B seller.
   """
   unitsRefundedB2B: Long @resultRetention(duration : "P30D")
+  "The number of units shipped for the selected time period."
+  unitsShipped: Long! @resultRetention(duration : "P30D")
+  """
+  The number of units shipped to Amazon Business customers for the selected time
+  period. Note: This field is only populated when the seller is a B2B seller.
+  """
+  unitsShippedB2B: Long @resultRetention(duration : "P30D")
 }
 
 "The traffic data for the seller's account aggregated by ASIN."
@@ -386,6 +408,11 @@ type ByDateSales {
   "The number of orders shipped for the selected time period."
   ordersShipped: Long! @resultRetention(duration : "P30D")
   """
+  The number of orders shipped to Amazon Business customers for the selected
+  time period. Note: This field is only populated when the seller is a B2B seller.
+  """
+  ordersShippedB2B: Long @resultRetention(duration : "P30D")
+  """
   The percentage conversion metric indicating how many orders were refunded by
   the seller, calculated by dividing unitsRefunded by unitsOrdered for the
   selected time period.
@@ -400,6 +427,12 @@ type ByDateSales {
   refundRateB2B: Float @resultRetention(duration : "P30D")
   "The amount of ordered product sales shipped for the selected time period."
   shippedProductSales: Amount! @resultRetention(duration : "P30D")
+  """
+  The amount of ordered product sales shipped to Amazon Business customers for
+  the selected time period. Note: This field is only populated when the seller
+  is a B2B seller.
+  """
+  shippedProductSalesB2B: Amount @resultRetention(duration : "P30D")
   """
   The number of items that were ordered for the selected time period. Example:
   For an order containing 2 copies of book A and 3 copies of book B, the number
@@ -439,6 +472,11 @@ type ByDateSales {
   unitsRefundedB2B: Long @resultRetention(duration : "P30D")
   "The number of units shipped for the selected time period."
   unitsShipped: Long! @resultRetention(duration : "P30D")
+  """
+  The number of units shipped to Amazon Business customers for the selected time
+  period. Note: This field is only populated when the seller is a B2B seller.
+  """
+  unitsShippedB2B: Long @resultRetention(duration : "P30D")
 }
 
 "The traffic data for the seller's account aggregated by date."
