@@ -31,6 +31,7 @@
         ],
         "description": "Returns orders that are created or updated during the specified time period. If you want to return specific types of orders, you can apply filters to your request. `NextToken` doesn't affect any filters that you include in your request; it only impacts the pagination for the filtered orders response. \n\n**Usage Plan:**\n\n| Rate (requests per second) | Burst |\n| ---- | ---- |\n| 0.0167 | 20 |\n\nThe `x-amzn-RateLimit-Limit` response header contains the usage plan rate limits for the operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput might have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api).",
         "operationId": "getOrders",
+        "deprecated": true,
         "parameters": [
           {
             "name": "CreatedAfter",
@@ -102,16 +103,9 @@
             }
           },
           {
-            "name": "BuyerEmail",
-            "in": "query",
-            "description": "The email address of a buyer. Used to select orders that contain the specified email address.",
-            "required": false,
-            "type": "string"
-          },
-          {
             "name": "SellerOrderId",
             "in": "query",
-            "description": "An order identifier that is specified by the seller. Used to select only the orders that match the order identifier. If `SellerOrderId` is specified, then `FulfillmentChannels`, `OrderStatuses`, `PaymentMethod`, `LastUpdatedAfter`, LastUpdatedBefore, and `BuyerEmail` cannot be specified.",
+            "description": "An order identifier that is specified by the seller. Used to select only the orders that match the order identifier. If `SellerOrderId` is specified, then `FulfillmentChannels`, `OrderStatuses`, `PaymentMethod`, `LastUpdatedAfter`, and `LastUpdatedBefore` cannot be specified.",
             "required": false,
             "type": "string"
           },
@@ -184,14 +178,14 @@
           {
             "name": "EarliestDeliveryDateBefore",
             "in": "query",
-            "description": "Use this date to select orders with a earliest delivery date before (or at) a specified time. The date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) format.",
+            "description": "Use this date to select orders with an earliest delivery date before (or at) a specified time. The date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) format.",
             "required": false,
             "type": "string"
           },
           {
             "name": "EarliestDeliveryDateAfter",
             "in": "query",
-            "description": "Use this date to select orders with a earliest delivery date after (or at) a specified time. The date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) format.",
+            "description": "Use this date to select orders with an earliest delivery date after (or at) a specified time. The date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) format.",
             "required": false,
             "type": "string"
           },
@@ -226,13 +220,13 @@
                       "PurchaseDate": "2017-01-20T19:49:35Z",
                       "LastUpdateDate": "2017-01-20T19:49:35Z",
                       "OrderStatus": "Pending",
-                      "FulfillmentChannel": "SellerFulfilled",
+                      "FulfillmentChannel": "MFN",
                       "NumberOfItemsShipped": 0,
                       "NumberOfItemsUnshipped": 0,
                       "PaymentMethod": "Other",
                       "PaymentMethodDetails": [
                         "CreditCard",
-                        "GiftCerificate"
+                        "GiftCertificate"
                       ],
                       "MarketplaceId": "ATVPDKIKX0DER",
                       "ShipmentServiceLevelCategory": "Standard",
@@ -255,7 +249,6 @@
                         "CountryCode": "US"
                       },
                       "BuyerInfo": {
-                        "BuyerEmail": "user@example.com",
                         "BuyerName": "John Doe",
                         "BuyerTaxInfo": {
                           "CompanyLegalName": "A Company Name"
@@ -411,13 +404,13 @@
                         "PurchaseDate": "2017-01-20T19:49:35Z",
                         "LastUpdateDate": "2017-01-20T19:49:35Z",
                         "OrderStatus": "Pending",
-                        "FulfillmentChannel": "SellerFulfilled",
+                        "FulfillmentChannel": "MFN",
                         "NumberOfItemsShipped": 0,
                         "NumberOfItemsUnshipped": 0,
                         "PaymentMethod": "Other",
                         "PaymentMethodDetails": [
                           "CreditCard",
-                          "GiftCerificate"
+                          "GiftCertificate"
                         ],
                         "MarketplaceId": "ATVPDKIKX0DER",
                         "ShipmentServiceLevelCategory": "Standard",
@@ -462,13 +455,13 @@
                         "PurchaseDate": "2017-01-20T19:49:35Z",
                         "LastUpdateDate": "2017-01-20T19:49:35Z",
                         "OrderStatus": "Pending",
-                        "FulfillmentChannel": "SellerFulfilled",
+                        "FulfillmentChannel": "MFN",
                         "NumberOfItemsShipped": 0,
                         "NumberOfItemsUnshipped": 0,
                         "PaymentMethod": "Other",
                         "PaymentMethodDetails": [
                           "CreditCard",
-                          "GiftCerificate"
+                          "GiftCertificate"
                         ],
                         "MarketplaceId": "ATVPDKIKX0DER",
                         "ShipmentServiceLevelCategory": "Standard",
@@ -603,6 +596,7 @@
         ],
         "description": "Returns the order that you specify.\n\n**Usage Plan:**\n\n| Rate (requests per second) | Burst |\n| ---- | ---- |\n| 0.5 | 30 |\n\nThe `x-amzn-RateLimit-Limit` response header contains the usage plan rate limits for the operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput might have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api).",
         "operationId": "getOrder",
+         "deprecated": true,
         "parameters": [
           {
             "name": "orderId",
@@ -625,13 +619,13 @@
                   "PurchaseDate": "2017-01-20T19:49:35Z",
                   "LastUpdateDate": "2017-01-20T19:49:35Z",
                   "OrderStatus": "Pending",
-                  "FulfillmentChannel": "SellerFulfilled",
+                  "FulfillmentChannel": "MFN",
                   "NumberOfItemsShipped": 0,
                   "NumberOfItemsUnshipped": 0,
                   "PaymentMethod": "Other",
                   "PaymentMethodDetails": [
                     "CreditCard",
-                    "GiftCerificate"
+                    "GiftCertificate"
                   ],
                   "MarketplaceId": "ATVPDKIKX0DER",
                   "ShipmentServiceLevelCategory": "Standard",
@@ -668,7 +662,6 @@
                     "CountryCode": "US"
                   },
                   "BuyerInfo": {
-                    "BuyerEmail": "user@example.com",
                     "BuyerName": "John Doe",
                     "BuyerTaxInfo": {
                       "CompanyLegalName": "A Company Name"
@@ -783,6 +776,17 @@
                     "PaymentMethod": "Other",
                     "PaymentMethodDetails": [
                       "Invoice"
+                    ],
+                    "PaymentExecutionDetail": [
+                      {
+                        "Payment": {
+                          "CurrencyCode": "BRL",
+                          "Amount": "20.00"
+                        },
+                        "PaymentMethod": "Pix",
+                        "AcquirerId": "XX.XXX.XXX/0001-ZZ",
+                        "AuthorizationCode": "123456"
+                      }
                     ],
                     "IsReplacementOrder": false,
                     "MarketplaceId": "A1PA6795UKMFR9",
@@ -935,6 +939,7 @@
         ],
         "description": "Returns buyer information for the order that you specify.\n\n**Usage Plan:**\n\n| Rate (requests per second) | Burst |\n| ---- | ---- |\n| 0.5 | 30 |\n\nThe `x-amzn-RateLimit-Limit` response header contains the usage plan rate limits for the operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput might have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api).",
         "operationId": "getOrderBuyerInfo",
+        "deprecated": true,
         "parameters": [
           {
             "name": "orderId",
@@ -954,7 +959,6 @@
               "application/json": {
                 "payload": {
                   "AmazonOrderId": "902-3159896-1390916",
-                  "BuyerEmail": "user@example.com",
                   "BuyerName": "John Smith",
                   "BuyerTaxInfo": {
                     "CompanyLegalName": "Company Name"
@@ -986,7 +990,6 @@
                   "response": {
                     "payload": {
                       "AmazonOrderId": "902-1845936-5435065",
-                      "BuyerEmail": "fzyrv6gwkhbb15c@example.com",
                       "BuyerName": "MFNIntegrationTestMerchant"
                     }
                   }
@@ -1105,6 +1108,7 @@
         ],
         "description": "Returns the shipping address for the order that you specify.\n\n**Usage Plan:**\n\n| Rate (requests per second) | Burst |\n| ---- | ---- |\n| 0.5 | 30 |\n\nThe `x-amzn-RateLimit-Limit` response header contains the usage plan rate limits for the operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput might have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api).",
         "operationId": "getOrderAddress",
+        "deprecated": true,
         "parameters": [
           {
             "name": "orderId",
@@ -1285,6 +1289,7 @@
         ],
         "description": "Returns detailed order item information for the order that you specify. If `NextToken` is provided, it's used to retrieve the next page of order items.\n\n__Note__: When an order is in the Pending state (the order has been placed but payment has not been authorized), the getOrderItems operation does not return information about pricing, taxes, shipping charges, gift status or promotions for the order items in the order. After an order leaves the Pending state (this occurs when payment has been authorized) and enters the Unshipped, Partially Shipped, or Shipped state, the getOrderItems operation returns information about pricing, taxes, shipping charges, gift status and promotions for the order items in the order.\n\n**Usage Plan:**\n\n| Rate (requests per second) | Burst |\n| ---- | ---- |\n| 0.5 | 30 |\n\nThe `x-amzn-RateLimit-Limit` response header contains the usage plan rate limits for the operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput might have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api).",
         "operationId": "getOrderItems",
+        "deprecated": true,
         "parameters": [
           {
             "name": "orderId",
@@ -1577,6 +1582,7 @@
         ],
         "description": "Returns buyer information for the order items in the order that you specify.\n\n**Usage Plan:**\n\n| Rate (requests per second) | Burst |\n| ---- | ---- |\n| 0.5 | 30 |\n\nThe `x-amzn-RateLimit-Limit` response header contains the usage plan rate limits for the operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput might have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api).",
         "operationId": "getOrderItemsBuyerInfo",
+        "deprecated": true,
         "parameters": [
           {
             "name": "orderId",
@@ -1640,6 +1646,7 @@
                     "AmazonOrderId": "902-1845936-5435065",
                     "OrderItems": [
                       {
+                        "OrderItemId": "68828574383266",
                         "BuyerCustomizedInfo": {
                           "CustomizedURL": "https://zme-caps.amazon.com/t/bR6qHkzSOxuB/J8nbWhze0Bd3DkajkOdY-XQbWkFralegp2sr_QZiKEE/1"
                         },
@@ -2174,7 +2181,7 @@
                           }, {
                             "RejectionReasonId": "pets_rx_sc_invalid_rx",
                             "RejectionReasonDescription": "Canceled due to not receiving a valid prescription"
-                          }, { 
+                          }, {
                             "RejectionReasonId": "pets_rx_sc_address_validation_error",
                             "RejectionReasonDescription": "Canceled due to a non-verified address, correct address and replace order"
                           }, {
@@ -3321,7 +3328,7 @@
           "description": "The number of items unshipped."
         },
         "PaymentExecutionDetail": {
-          "description": "Information about sub-payment methods for a cash-on-delivery (COD) order.\n\n__Note__: For a COD order that is paid for using one sub-payment method, one `PaymentExecutionDetailItem` object is returned, with `PaymentExecutionDetailItem`/`PaymentMethod = COD`. For a COD order that is paid for using multiple sub-payment methods, two or more `PaymentExecutionDetailItem` objects are returned.",
+          "description": "Information about the sub-payment methods for an order.",
           "$ref": "#/definitions/PaymentExecutionDetailItemList"
         },
         "PaymentMethod": {
@@ -3534,10 +3541,6 @@
         "AmazonOrderId": {
           "type": "string",
           "description": "An Amazon-defined order identifier, in 3-7-7 format."
-        },
-        "BuyerEmail": {
-          "type": "string",
-          "description": "The anonymized email address of the buyer."
         },
         "BuyerName": {
           "type": "string",
@@ -3844,9 +3847,6 @@
     },
     "Address": {
       "type": "object",
-      "required": [
-        "Name"
-      ],
       "properties": {
         "Name": {
           "type": "string",
@@ -4160,7 +4160,19 @@
         },
         "PaymentMethod": {
           "type": "string",
-          "description": "A sub-payment method for a COD order.\n\n**Possible values**:\n* `COD`: Cash on delivery \n* `GC`: Gift card \n* `PointsAccount`: Amazon Points\n* `Invoice`: Invoice"
+          "description": "The sub-payment method for an order. \n\n**Possible values**:\n* `COD`: Cash on delivery \n* `GC`: Gift card \n* `PointsAccount`: Amazon Points \n* `Invoice`: Invoice \n* `CreditCard`: Credit card \n* `Pix`: Pix \n* `Other`: Other."
+        },
+        "AcquirerId": {
+          "description": "The Brazilian Taxpayer Identifier (CNPJ) of the payment processor or acquiring bank that authorizes the payment. \n\n**Note**: This attribute is only available for orders in the Brazil (BR) marketplace when the `PaymentMethod` is `CreditCard` or `Pix`.",
+          "type": "string"
+        },
+        "CardBrand": {
+          "description": "The card network or brand used in the payment transaction (for example, Visa or Mastercard). \n\n**Note**: This attribute is only available for orders in the Brazil (BR) marketplace when the `PaymentMethod` is `CreditCard`.",
+          "type": "string"
+        },
+        "AuthorizationCode": {
+          "description": "The unique code that confirms the payment authorization. \n\n**Note**: This attribute is only available for orders in the Brazil (BR) marketplace when the `PaymentMethod` is `CreditCard` or `Pix`.",  
+          "type": "string"
         }
       },
       "description": "Information about a sub-payment method used to pay for a COD order."
@@ -4892,10 +4904,6 @@
     "BuyerInfo": {
       "type": "object",
       "properties": {
-        "BuyerEmail": {
-          "type": "string",
-          "description": "The anonymized email address of the buyer."
-        },
         "BuyerName": {
           "type": "string",
           "description": "The buyer name or the recipient name."
